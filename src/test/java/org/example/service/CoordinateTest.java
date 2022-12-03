@@ -11,15 +11,33 @@ class CoordinateTest {
   void robotCoordinateTest() {
 
     //given
-    int expectedX = 1;
-    int expectedY = 2;
+    int initX = 1;
+    int initY = 2;
 
     //when
-    Coordinate coordinate = new Coordinate(expectedX, expectedY);
+    Coordinate coordinate = new Coordinate(initX, initY);
 
     //then
-    Assertions.assertEquals(expectedX, coordinate.getX());
-    Assertions.assertEquals(expectedY, coordinate.getY());
+    Assertions.assertEquals(initX, coordinate.getX());
+    Assertions.assertEquals(initY, coordinate.getY());
+
+  }
+
+  @Test
+  void robotCoordinateNegativeTest() {
+
+    //given
+    int initX = 1;
+    int initY = 2;
+    int unexpectedX = 3;
+    int unexpectedY = 4;
+
+    //when
+    Coordinate coordinate = new Coordinate(initX, initY);
+
+    //then
+    Assertions.assertNotEquals(unexpectedX, coordinate.getX());
+    Assertions.assertNotEquals(unexpectedY, coordinate.getY());
 
   }
 
