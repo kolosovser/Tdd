@@ -3,6 +3,7 @@ package org.example.service;
 import java.util.List;
 import lombok.experimental.UtilityClass;
 import org.example.Robot;
+import org.example.model.Plato;
 
 @UtilityClass
 public class RobotSystemFacade {
@@ -10,9 +11,10 @@ public class RobotSystemFacade {
   public static List<String> handle(List<String> inputData) {
     InputDataValidator.validateInputData(inputData);
 
-    List<Robot> robots = InputDataMapper.mapInputDataToRobots(inputData);
+    Plato plato = InputDataMapper.mapInputDataToRobots(inputData);
+    List<Robot> robots = plato.getRobots();
 
-    robots.forEach(Robot::move);
+    robots.forEach(robot -> robot.move(plato.getCoordinate()));
 
     return ResponseMapper.mapRobotInfoToResponse(robots);
   }

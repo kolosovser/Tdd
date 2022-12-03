@@ -18,7 +18,6 @@ class ResponseMapperTest {
         .coordinate(new Coordinate(1, 2))
         .direction(RobotDirection.N)
         .instructions(List.of(RobotInstruction.L, RobotInstruction.M))
-        .platoSize(new Coordinate(5, 5))
         .build();
 
     String expectedResult = "1 2 N";

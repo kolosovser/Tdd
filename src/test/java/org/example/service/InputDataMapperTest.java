@@ -1,9 +1,11 @@
 package org.example.service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
 import org.example.Robot;
 import org.example.model.Coordinate;
+import org.example.model.Plato;
 import org.example.model.RobotDirection;
 import org.example.model.RobotInstruction;
 import org.junit.jupiter.api.Assertions;
@@ -17,15 +19,15 @@ class InputDataMapperTest {
   @MethodSource("getTestData")
   @DisplayName("Маппинг введенных в консоль данных на класс Robot")
   @ParameterizedTest(name = "{0}")
-  void mapOneRobotPositiveTest(String testName, List<String> initData, List<Robot> expectedResult) {
+  void mapOneRobotPositiveTest(String testName, List<String> initData, Plato expectedResult) {
 
     //when
-    List<Robot> actualResult = InputDataMapper.mapInputDataToRobots(initData);
+    Plato actualResult = InputDataMapper.mapInputDataToRobots(initData);
 
     //then
     Assertions.assertNotNull(actualResult);
-    Assertions.assertEquals(expectedResult.size(), actualResult.size());
-    Assertions.assertTrue(expectedResult.containsAll(actualResult));
+    Assertions.assertEquals(expectedResult.getRobots().size(), actualResult.getRobots().size());
+    Assertions.assertTrue(expectedResult.getRobots().containsAll(actualResult.getRobots()));
   }
 
   private static Stream<Arguments> getTestData() {
@@ -37,13 +39,13 @@ class InputDataMapperTest {
                 "1 2 N",
                 "LM"
             ),
-            List.of(
-                Robot.builder()
+            new Plato(
+                new Coordinate(5, 5),
+                Collections.singletonList(Robot.builder()
                     .coordinate(new Coordinate(1, 2))
                     .direction(RobotDirection.N)
                     .instructions(List.of(RobotInstruction.L, RobotInstruction.M))
-                    .platoSize(new Coordinate(5, 5))
-                    .build()
+                    .build())
             )
         )
     );

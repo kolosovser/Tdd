@@ -12,16 +12,15 @@ import org.example.model.RobotInstruction;
 public class Robot {
 
   Coordinate coordinate;
-  Coordinate platoSize;
   RobotDirection direction;
   List<RobotInstruction> instructions;
 
-  public void move() {
+  public void move(Coordinate platoCoordinate) {
     getInstructions().forEach(it -> {
       switch (it) {
         case L -> changeDirectionToLeft();
         case R -> changeDirectionToRight();
-        case M -> makeStep();
+        case M -> makeStep(platoCoordinate);
       }
     });
   }
@@ -44,10 +43,10 @@ public class Robot {
     }
   }
 
-  private void makeStep() {
+  private void makeStep(Coordinate platoCoordinate) {
     switch (direction) {
       case E -> {
-        if (coordinate.getX() < platoSize.getX()) {
+        if (coordinate.getX() < platoCoordinate.getX()) {
           coordinate.setX(coordinate.getX() + 1);
         }
       }
@@ -57,7 +56,7 @@ public class Robot {
         }
       }
       case N -> {
-        if (coordinate.getY() < platoSize.getY()) {
+        if (coordinate.getY() < platoCoordinate.getY()) {
           coordinate.setY(coordinate.getY() + 1);
         }
       }

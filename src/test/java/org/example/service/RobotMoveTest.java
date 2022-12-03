@@ -20,7 +20,6 @@ class RobotMoveTest {
     Robot initRobot = Robot.builder()
         .coordinate(new Coordinate(1, 2))
         .direction(RobotDirection.N)
-        .platoSize(new Coordinate(5, 5))
         .instructions(List.of(L, M, L, M, L, M, L, M, M))
         .build();
 
@@ -30,7 +29,7 @@ class RobotMoveTest {
         .build();
 
     //when
-    initRobot.move();
+    initRobot.move(new Coordinate(5, 5));
 
     //then
     Assertions.assertEquals(expectedRobot.getCoordinate(), initRobot.getCoordinate());
