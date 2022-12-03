@@ -1,9 +1,9 @@
 package org.example.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import lombok.experimental.UtilityClass;
-import org.example.model.PlatoAndRobotsDto;
-import org.example.model.RobotLocationDto;
+import org.example.Robot;
 
 @UtilityClass
 public class RobotSystemFacade {
@@ -11,11 +11,13 @@ public class RobotSystemFacade {
   public static List<String> handle(List<String> inputData) {
     InputDataValidator.validateInputData(inputData);
 
-    PlatoAndRobotsDto platoAndRobots = InputDataMapper.mapInputDataToDto(inputData);
+    List<Robot> initRobots = InputDataMapper.mapInputDataToDto(inputData);
 
-    List<RobotLocationDto> robotsInfo = RobotMover.moveRobots(platoAndRobots);
+    List<Robot> movedRobots = initRobots.stream()
+        .map(robot -> robot.move(robot))
+        .collect(Collectors.toList());
 
-    return ResponseMapper.mapRobotInfoToResponse(robotsInfo);
+    return ResponseMapper.mapRobotInfoToResponse(movedRobots);
   }
 
 }

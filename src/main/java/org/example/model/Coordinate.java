@@ -7,10 +7,9 @@ import lombok.Data;
 @Data
 @Builder
 @AllArgsConstructor
-public class RobotLocationDto {
+public class Coordinate {
 
   Integer x;
   Integer y;
-  RobotCameraDirection cameraDirection;
 
 }

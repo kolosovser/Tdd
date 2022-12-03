@@ -4,13 +4,14 @@ import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import org.example.Robot;
 
 @Data
 @Builder
 @AllArgsConstructor
 public class PlatoAndRobotsDto {
 
-  PlatoDto platoDto;
-  List<RobotDto> robots;
+  Coordinate platoCoordinate;
+  List<Robot> robots;
 
 }
