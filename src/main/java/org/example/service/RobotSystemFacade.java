@@ -14,7 +14,7 @@ public class RobotSystemFacade {
     List<Robot> initRobots = InputDataMapper.mapInputDataToDto(inputData);
 
     List<Robot> movedRobots = initRobots.stream()
-        .map(robot -> robot.move(robot))
+        .map(Robot::move)
         .collect(Collectors.toList());
 
     return ResponseMapper.mapRobotInfoToResponse(movedRobots);

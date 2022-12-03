@@ -30,7 +30,7 @@ class RobotMoveTest {
         .build();
 
     //when
-    Robot actualRobot = initRobot.move(initRobot);
+    Robot actualRobot = initRobot.move();
 
     //then
     Assertions.assertEquals(expectedRobot.getCoordinate(), actualRobot.getCoordinate());
