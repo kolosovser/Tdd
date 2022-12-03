@@ -10,7 +10,7 @@ public class RobotSystemFacade {
   public static List<String> handle(List<String> inputData) {
     InputDataValidator.validateInputData(inputData);
 
-    List<Robot> robots = InputDataMapper.mapInputDataToDto(inputData);
+    List<Robot> robots = InputDataMapper.mapInputDataToRobots(inputData);
 
     robots.forEach(Robot::move);
 

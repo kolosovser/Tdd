@@ -1,6 +1,6 @@
 package org.example.model;
 
-public enum RobotCameraDirection {
+public enum RobotDirection {
 
   N, S, E, W
 

@@ -4,7 +4,7 @@ import java.util.List;
 import lombok.Builder;
 import lombok.Data;
 import org.example.model.Coordinate;
-import org.example.model.RobotCameraDirection;
+import org.example.model.RobotDirection;
 import org.example.model.RobotInstruction;
 
 @Data
@@ -13,7 +13,7 @@ public class Robot {
 
   Coordinate coordinate;
   Coordinate platoSize;
-  RobotCameraDirection direction;
+  RobotDirection direction;
   List<RobotInstruction> instructions;
 
   public void move() {
@@ -28,19 +28,19 @@ public class Robot {
 
   private void changeDirectionToLeft() {
     switch (direction) {
-      case E -> direction = RobotCameraDirection.N;
-      case N -> direction = RobotCameraDirection.W;
-      case W -> direction = RobotCameraDirection.S;
-      case S -> direction = RobotCameraDirection.E;
+      case E -> direction = RobotDirection.N;
+      case N -> direction = RobotDirection.W;
+      case W -> direction = RobotDirection.S;
+      case S -> direction = RobotDirection.E;
     }
   }
 
   private void changeDirectionToRight() {
     switch (direction) {
-      case E -> direction = RobotCameraDirection.S;
-      case S -> direction = RobotCameraDirection.W;
-      case W -> direction = RobotCameraDirection.N;
-      case N -> direction = RobotCameraDirection.E;
+      case E -> direction = RobotDirection.S;
+      case S -> direction = RobotDirection.W;
+      case W -> direction = RobotDirection.N;
+      case N -> direction = RobotDirection.E;
     }
   }
 

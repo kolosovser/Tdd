@@ -3,12 +3,14 @@ package org.example.service;
 
 import org.example.model.Coordinate;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class CoordinateTest {
 
   @Test
-  void robotCoordinateTest() {
+  @DisplayName("Two Coordinates are equal when the coordinates are the same")
+  void robotCoordinatePositiveTest() {
 
     //given
     int initX = 1;
@@ -24,6 +26,7 @@ class CoordinateTest {
   }
 
   @Test
+  @DisplayName("Two Coordinates are not equal when the coordinates are not the same")
   void robotCoordinateNegativeTest() {
 
     //given

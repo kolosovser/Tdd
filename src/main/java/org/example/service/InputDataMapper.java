@@ -7,13 +7,13 @@ import java.util.stream.IntStream;
 import lombok.experimental.UtilityClass;
 import org.example.Robot;
 import org.example.model.Coordinate;
-import org.example.model.RobotCameraDirection;
+import org.example.model.RobotDirection;
 import org.example.model.RobotInstruction;
 
 @UtilityClass
 public class InputDataMapper {
 
-  public static List<Robot> mapInputDataToDto(List<String> inputData) {
+  public static List<Robot> mapInputDataToRobots(List<String> inputData) {
 
     String[] platoInfo = inputData.get(0).split(" ");
     List<String> robotInfo = inputData.stream().skip(1).collect(Collectors.toList());
@@ -36,7 +36,7 @@ public class InputDataMapper {
               return Robot.builder()
                   .coordinate(camera)
                   .instructions(instruction)
-                  .direction(RobotCameraDirection.valueOf(cameraList.get(2)))
+                  .direction(RobotDirection.valueOf(cameraList.get(2)))
                   .platoSize(new Coordinate(Integer.parseInt(platoInfo[0]), Integer.parseInt(platoInfo[1])))
                   .build();
             }
