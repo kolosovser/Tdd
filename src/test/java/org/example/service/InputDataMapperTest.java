@@ -22,7 +22,7 @@ class InputDataMapperTest {
   void mapOneRobotPositiveTest(String testName, List<String> initData, Plato expectedResult) {
 
     //when
-    Plato actualResult = InputDataMapper.mapInputDataToRobots(initData);
+    Plato actualResult = InputDataMapper.mapInputDataToPojo(initData);
 
     //then
     Assertions.assertNotNull(actualResult);

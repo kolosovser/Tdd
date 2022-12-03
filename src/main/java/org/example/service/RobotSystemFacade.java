@@ -11,7 +11,7 @@ public class RobotSystemFacade {
   public static List<String> handle(List<String> inputData) {
     InputDataValidator.validateInputData(inputData);
 
-    Plato plato = InputDataMapper.mapInputDataToRobots(inputData);
+    Plato plato = InputDataMapper.mapInputDataToPojo(inputData);
     List<Robot> robots = plato.getRobots();
 
     robots.forEach(robot -> robot.move(plato.getCoordinate()));

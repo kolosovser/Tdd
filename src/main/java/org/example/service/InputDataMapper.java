@@ -14,7 +14,7 @@ import org.example.model.RobotInstruction;
 @UtilityClass
 public class InputDataMapper {
 
-  public static Plato mapInputDataToRobots(List<String> inputData) {
+  public static Plato mapInputDataToPojo(List<String> inputData) {
 
     String[] platoInfo = inputData.get(0).split(" ");
     List<String> robotInfo = inputData.stream().skip(1).collect(Collectors.toList());
