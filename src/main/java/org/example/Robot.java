@@ -16,7 +16,7 @@ public class Robot {
   RobotCameraDirection direction;
   List<RobotInstruction> instructions;
 
-  public Robot move() {
+  public void move() {
     getInstructions().forEach(it -> {
       switch (it) {
         case L -> changeDirectionToLeft();
@@ -24,7 +24,6 @@ public class Robot {
         case M -> makeStep();
       }
     });
-    return this;
   }
 
   private void changeDirectionToLeft() {

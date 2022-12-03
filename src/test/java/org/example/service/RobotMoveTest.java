@@ -30,11 +30,11 @@ class RobotMoveTest {
         .build();
 
     //when
-    Robot actualRobot = initRobot.move();
+    initRobot.move();
 
     //then
-    Assertions.assertEquals(expectedRobot.getCoordinate(), actualRobot.getCoordinate());
-    Assertions.assertEquals(expectedRobot.getDirection(), actualRobot.getDirection());
+    Assertions.assertEquals(expectedRobot.getCoordinate(), initRobot.getCoordinate());
+    Assertions.assertEquals(expectedRobot.getDirection(), initRobot.getDirection());
   }
 
 }
